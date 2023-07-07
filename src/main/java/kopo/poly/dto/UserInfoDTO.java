@@ -6,15 +6,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserInfoDTO {
-    private String userId;
-    private String userName;
-    private String userPassword;
+    private String user_id;
+    private String user_name;
+    private String password;
     private String email;
-    private String regId;
-    private String regDt;
-    private String chgId;
-    private String chgDt;
+    private String reg_id;
+    private String reg_dt;
+    private String chg_id;
+    private String chg_dt;
 
     private int authNumber;
-    private String existsYn;
+    private String exists_yn;
 }

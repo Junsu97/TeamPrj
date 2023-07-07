@@ -8,12 +8,12 @@ import lombok.Setter;
 public class NoticeDTO {
     private String notice_seq;
     private String title;
-    private String noticeYn;
+    private String notice_yn;
     private String contents;
-    private String userId;
-    private String readCnt;
-    private String regId;
-    private String regDt;
-    private String chgId;
-    private String chgDt;
+    private String user_id;
+    private String read_cnt;
+    private String reg_id;
+    private String reg_dt;
+    private String chg_id;
+    private String chg_dt;
 }

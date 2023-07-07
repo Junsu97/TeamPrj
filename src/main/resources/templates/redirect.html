@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>redirect</title>
+</head>
+<body>
+<!--JavaScript 내부에서 Thymeleaf 문법을 인식할 수 있도록 함-->
+<script th:inline="javascript">
+  let msg = [[${msg}]];
+  let url = [[${url}]];
+  alert(msg);
+  location.href=url;
+</script>
+<meta charset="UTF-8">
+<h1>로그인 성공!</h1>
+</body>
+</html>
