@@ -6,47 +6,27 @@
     <insert id="insertUserInfo" parameterType="UserInfoDTO">
         INSERT INTO USER_INFO
         (USER_ID,
+         USER_NAME,
          PASSWORD,
          EMAIL,
          REG_ID,
          REG_DT,
          CHG_ID,
-         CHG_DT,
-         USER_NAME)
+         CHG_DT)
         VALUES (#{user_id},
-                #{password},
-                #{email},
-                #{user_id},
-                SYSDATE(),
-                #{user_id},
-                SYSDATE(),
-                #{user_name})
+               #{user_name},
+               #{password},
+               #{email},
+               #{user_id},
+               SYSDATE(),
+               #{user_id},
+               SYSDATE())
     </insert>
-    <!-- 로그인을 위해 아이디와 비밀번호가 일치하는지 확인-->
+<!-- 로그인을 위해 아이디와 비밀번호가 일치하는지 확인-->
     <select id="getLogin" parameterType="UserInfoDTO" resultType="UserInfoDTO">
         SELECT USER_ID, USER_NAME, EMAIL
         FROM USER_INFO
         WHERE USER_ID = #{user_id}
-          AND PASSWORD = #{password}
-    </select>
-
-    <!--회원 가입 전 아이디 중복체크하기-->
-    <select id="getUserIdExists" parameterType="UserInfoDTO" resultType="UserInfoDTO">
-        SELECT
-            CASE WHEN COUNT(1) = 0 THEN 'N' ELSE'Y' END AS EXISTS_YN
-        FROM
-            USER_INFO
-        WHERE
-            USER_ID = #{user_id};
-    </select>
-
-    <!--회원 가입 전 이메일 중복 체크하기-->
-    <select id="getEmailExists" parameterType="UserInfoDTO" resultType="UserInfoDTO">
-        SELECT
-            CASE WHEN COUNT(1) = 0 THEN 'N' ELSE 'Y' END AS EXISTS_YN
-        FROM
-            USER_INFO
-        WHERE
-            EMAIL = #{email};
+        AND PASSWORD = #{password}
     </select>
 </mapper>

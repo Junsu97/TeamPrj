@@ -5,10 +5,10 @@ import kopo.poly.service.IMailService;
 import kopo.poly.util.CmmUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.mail.internet.MimeMessage;
 
@@ -29,12 +29,12 @@ public class MailService implements IMailService {
 
         // 메일 발송 성공여부(성공 : 1 / 실패 : 0)
         int res = 1;
-
+        
         // 전달 받은 DTO로부터 데이터 가져오기(DTO객체가 메모리에 올라가지 않아 Null이 발생할 수 있기 때문에 에러방지차원으로 if문사용
         if(pDTO == null){
             pDTO = new MailDTO();
         }
-
+        
         String toMail = CmmUtil.nvl(pDTO.getToMail()); // 받는 사람
         String title = CmmUtil.nvl(pDTO.getTitle()); // 메일 제목
         String contents = CmmUtil.nvl(pDTO.getContents()); // 메일 내용
