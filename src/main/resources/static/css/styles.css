@@ -4214,8 +4214,8 @@ textarea.form-control-lg {
   --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
   /*나중에 변경*/
   --bs-card-cap-color: black;
-  --bs-card-height: 700px;
-  --bs-card-color: black;
+  --bs-card-height: ;
+  --bs-card-color: ;
   --bs-card-bg: #fff;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;

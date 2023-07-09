@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface IUserInfoMapper {
+
+    int naverLoginExists(UserInfoDTO pDTO) throws Exception;
     // 회원가입하기(회원정보 등록)
     int insertUserInfo(UserInfoDTO pDTO) throws Exception;
 

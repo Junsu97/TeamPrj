@@ -22,4 +22,6 @@
         WHERE
             EMAIL = #{email};
     </select>
+
+
 </mapper>
