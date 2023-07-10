@@ -4,6 +4,7 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
 import kopo.poly.dto.UserInfoDTO;
 import kopo.poly.oauth.NaverLoginBO;
 import kopo.poly.service.IUserInfoService;
+import kopo.poly.util.EncryptUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
@@ -81,6 +82,7 @@ public class NaverController {
         // 프로필 조회
         String email = (String) response_obj.get("email");
         String name = (String) response_obj.get("name");
+        String password = "1234";
 
         String msg = "";
         String url = "";
@@ -91,6 +93,7 @@ public class NaverController {
             pDTO.setUser_id(email);
             pDTO.setEmail(email);
             pDTO.setUser_name(name);
+            pDTO.setPassword(EncryptUtil.encHashSHA256(password));
 
             log.info(userInfoService.getUserIdExists(pDTO).getExists_yn());
             if(userInfoService.getUserIdExists(pDTO).getExists_yn().equals("N")){
